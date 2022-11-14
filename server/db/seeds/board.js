@@ -4,11 +4,10 @@ exports.seed = async function (knex) {
   await knex('users').insert([
     {
       id: 1,
-      title: 'Jane Doe',
-      emmoodail: 'janedoe@gmaily.com',
+      board_title: '',
+      movieData: {},
       colour: [],
-      imageUrl: [],
-      story: '',
+      comments: '',
       dateCreated: '',
     },
   ])
