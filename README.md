@@ -1,36 +1,103 @@
-# Boilerplate: React with Webpack
-This is a starter project that uses webpack to transpile and bundle ES6 React code. 
+# Fullstack Collection App
+
+This repo is designed to provide space to code a fullstack app. It contains node modules and folders for databases, routes, api requests, react components, and redux actions and creators. Let's get going!
 
 ## Setup
 
-### Installation
-To use, consider these steps:
+### 0. Cloning and installation
+- [x] Clone this repo, navigate to it, install packages, and start the server with `npm run dev`
+  <details style="padding-left: 2em">
+    <summary>Tip</summary>
 
-* Fork this repo
-* Rename your repo according to the app you're building
+    You may also want to start a new branch
+    ```sh
+    cd my-fullstack-collection
+    npm i
+    git checkout -b <branchname>
+    npm run dev
+    ```
+  </details>
 
-```sh
-git clone https://github.com/[your-account]/[your-app].git
-cd [your-app] && npm i
-```
+<details>
+  <summary>More about using <code>npm</code> vs <code>npx</code></summary>
 
-To start the development server with a watcher that rebuilds your code, run `npm run dev`. The assets built by webpack are placed in `server/public`. This folder is defined as a static folder in an Express.js server that can be started with `npm run server`.
-
-Additional components should be placed in `client/components`.
-
----
-
-## Separate client/server
-
-The boilerplate is also set up to host the client using `webpack-dev-server` with hot module reloading etc. To use this method, in one terminal run:
-```sh
-npm run client
-```
-and in the other:
-```sh
-npm run server
-```
-The client will be available on http://localhost:8080 and the server on http://localhost:3000. Note that you will still need to manage CORS between the two, as they are on different ports.
+  - When running knex, run `npm run knex <command>`, e.g. `npm run knex migrate:latest` rather than using `npx`
+  - When running webpack, run `npm run webpack <extra commands>`, e.g. `npm run webpack`, rather than using `npx`
+</details>
 
 ---
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=boilerplate-react-api)
+
+## Requirements
+
+### 1. Choosing your data set
+
+- [ ] First, decide what you would like to keep a collection of. This could be a repo for keeping track of movies, books, gifs, cars, rocks, anything you fancy, but keep it simple!
+  <details style="padding-left: 2em">
+    <summary>More about your collection</summary>
+
+    **Note:** the aim is to have some simple data. If you think you might need more than one database table, or have lots of details you want to store, how could you simplify the information you're keeping track of? Leave more complex data until later in the project. For example, I want to keep track of books that I want to read, ones that I have read, and ones that I own. To start with though, let's keep track of the books themselves. My data might look like:
+
+    |id|title|author|
+    |---|---|---|
+    | 1 | Ready Player One | Ernest Cline |
+    | 2 | Throwing Rocks at the Google Bus | Douglas Rushkoff |
+
+Our first job is getting something showing on the front end from our database. Here's a list of steps in case they are useful. You can build in any order you like though ;)
+
+## Back end
+
+### 2. Building the database
+
+- [ ] Design a database to store a list of your things (e.g. books)
+- [ ] Build the migrations and seed data
+
+### 3. Building the API
+- [ ] Build an API (back end route) to get the information from your database
+- [ ] Test your API with Insomnia
+
+## Front end
+
+### 4. Setting the stage
+
+- [ ] Build a React component with static html
+- [ ] Build Redux reducer. Start with a hardcoded initial state
+  <details style="padding-left: 2em">
+    <summary>Tip</summary>
+    
+    For example:
+    ```js
+    const initialState = [{ id: 1, title: 'Ready Player One', author: 'Ernest Cline' }]
+    ```
+  </details>
+
+- [ ] Use `useSelector` to display the redux state you hardcoded in the React Component
+
+### 5. Building the API client
+- [ ] Build an API client in the front end to request the information from your routes
+
+### 6. Building thunky actions
+- [ ] Build Thunk actions to use the API and get the information
+- [ ] Build Redux actions to save task data from the thunk
+- [ ] Use `useDispatch` and `useEffect` to dispatch the thunk when your app loads
+
+## Additional functionality
+
+### 7. Adding, deleting, and updating records
+- [ ] Include the ability to add a new record (will need a form in your components)
+- [ ] Include the ability to remove/delete records
+- [ ] Include the ability to update records (e.g. for correcting typos)
+
+---
+## Stretch
+
+<details>
+  <summary>More about stretch challenges</summary>
+
+  - Is there any complex data you chose to not include earlier or any way you could expand this dataset?
+    - You might have some other information (e.g. unread books vs. read books) that should be included in your database design, and this may require adjusting your database design
+  - Could you add an external API (maybe an inspirational quote in the footer?)
+  - If you haven't already, CSS!
+</details>
+
+---
+[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=my-fullstack-collection)
