@@ -1,34 +1,25 @@
-import React, { useState, useEffect } from 'react'
-import { getGreeting } from '../apiClient'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-const App = () => {
-  const [greeting, setGreeting] = useState('')
-  const [count, setCount] = useState(0)
-  const [isError, setIsError] = useState(false)
+import { fetchFruits } from '../actions'
 
+function App() {
+  const fruits = useSelector((state) => state.fruits)
+  const dispatch = useDispatch()
   useEffect(() => {
-    getGreeting()
-      .then((greeting) => {
-        console.log(greeting)
-        setGreeting(greeting)
-        setIsError(false)
-      })
-      .catch((err) => {
-        console.log(err)
-        setIsError(true)
-      })
-  }, [count])
+    dispatch(fetchFruits())
+  }, [])
 
   return (
     <>
-      {count}
-      <h1>{greeting}</h1>
-      {isError && (
-        <p style={{ color: 'red' }}>
-          There was an error retrieving the greeting.
-        </p>
-      )}
-      <button onClick={() => setCount(count + 1)}>Click</button>
+      <div className="app">
+        <h1>Fullstack Boilerplate - with Fruits!</h1>
+        <ul>
+          {fruits.map((fruit) => (
+            <li key={fruit}>{fruit}</li>
+          ))}
+        </ul>
+      </div>
     </>
   )
 }
