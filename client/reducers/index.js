@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux'
+import board from './board'
+import errMessage from './errMessage'
+import user from './user'
 
 export default combineReducers({
-  // fruits,
+  board,
+  errMessage,
+  user,
 })
