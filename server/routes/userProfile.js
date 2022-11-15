@@ -1,14 +1,8 @@
 const express = require('express')
 const router = express.Router()
-// const db = require('../db/fruits')
+const db = require('../db/db.js')
 
-// --- external movie API ---
-
-// --- external colour API ---
-
-// --- external book API ---
-
-// --- external music API ---
+// --- routes to get/send data to profile db
 
 // router.get('/', (req, res) => {
 //   db.getFruits()
@@ -21,4 +15,4 @@ const router = express.Router()
 //     })
 // })
 
-// module.exports = router
+module.exports = router
