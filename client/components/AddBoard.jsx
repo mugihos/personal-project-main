@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function AddBoard() {
   //local useState to handle input
+  const [input, setInput] = useState('')
+
   //display option retrived from the api call and list them
 
-  function handleChange() {}
+  function handleChange() {
+    setInput(input)
+  }
 
-  function handleSubmit() {}
+  function handleSubmit(event) {
+    event.preventDefault()
+    setInput(event.target.value)
+  }
 
   //submit this again as a whole form
   return (
@@ -17,6 +24,7 @@ function AddBoard() {
           type="text"
           id="movieSearch"
           name="movie"
+          value={input}
           onChange={handleChange}
         />
         <button className="button-52">search</button>
