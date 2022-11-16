@@ -8,6 +8,7 @@ function movies(state = [], action) {
 
   switch (type) {
     case SET_MOVIES:
+      // console.log(payload)
       return [...state, payload]
     default:
       return state

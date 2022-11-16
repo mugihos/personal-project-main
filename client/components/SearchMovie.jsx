@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchMovies } from '../actions/addBoard'
 
+// Movie search function
+
 function SearchBoard() {
   const dispatch = useDispatch()
   //local useState to handle input
   const [input, setInput] = useState('')
-
-  //display option retrived from the api call and list them
 
   function handleChange(event) {
     setInput(event.target.value)

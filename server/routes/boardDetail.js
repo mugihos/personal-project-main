@@ -16,4 +16,4 @@ const db = require('../db/db.js')
 
 // DELETE /api/v1/board/:boardId/delete
 
-module.export = router
+// module.exports = router

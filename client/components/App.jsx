@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 import SearchMovie from './SearchMovie'
 import Footer from './Footer'
+import MovieList from './MovieList'
 // import Header from './Header'
 // import Nav from './Nav'
 // import ViewBoards from './ViewBoards'
@@ -12,6 +12,7 @@ function App() {
       <div className="app">
         <h1>Fullstack Boilerplate - with Fruits!</h1>
         <SearchMovie />
+        <MovieList />
         <Footer />
       </div>
     </>

@@ -9,6 +9,7 @@ export function setMovies(movies) {
 export function fetchMovies(movie) {
   return (dispatch) => {
     return getMovieData(movie).then((movieData) => {
+      console.log(movieData)
       dispatch(setMovies(movieData))
     })
   }
