@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchMovies } from '../actions/addBoard'
 
-function AddBoard() {
+function SearchBoard() {
+  const dispatch = useDispatch()
   //local useState to handle input
   const [input, setInput] = useState('')
 
   //display option retrived from the api call and list them
 
-  function handleChange() {
-    setInput(input)
+  function handleChange(event) {
+    setInput(event.target.value)
+    // console.log(input)
   }
 
   function handleSubmit(event) {
     event.preventDefault()
-    setInput(event.target.value)
+    dispatch(fetchMovies(input))
   }
 
   //submit this again as a whole form
@@ -27,10 +31,12 @@ function AddBoard() {
           value={input}
           onChange={handleChange}
         />
-        <button className="button-52">search</button>
+        <button className="button-52" type="submit">
+          search
+        </button>
       </form>
     </>
   )
 }
 
-export default AddBoard
+export default SearchBoard

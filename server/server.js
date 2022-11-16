@@ -19,8 +19,8 @@ server.use(express.static(path.join(__dirname, 'public')))
 // server.use('/api/v1/board', boardDetail)
 
 // --- external movie API ---
-server.get('/api/v1/search/movies', (req, res) => {
-  const title = req.query.title
+server.get('/api/v1/search/movies/:title', (req, res) => {
+  const title = req.params.title
   request
     .get(`https://imdb-api.com/en/API/SearchMovie/${apiKey}/${title}`)
     .then((response) => {
