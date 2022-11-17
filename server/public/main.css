@@ -10,18 +10,62 @@ html{
   
 }
 
-.app {
+.container {
+  display: flex;
   margin: 2rem;
   padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
   color: #3C6385;
   /* color: #863A6F; */
 }
 
-/* ----- header ----- */
+
+/* ----- Header ----- */
+
+.header{
+  width: 100%;
+  /* padding: 60px; */
+  text-align: center;
+  color: #3C6385;
+  font-size: 2.5rem;
+  font-weight: bold;
+  /* position: relative;
+  position: fixed;
+  top: 0;
+  overflow: hidden; */
+}
+
+/* ----- Navbar ----- */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.nav-item {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
+li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #3C6385;
+}
+
+/* ----- Container ----- */
 
 
 
-/* ----- footer ----- */
+/* ----- Footer ----- */
 footer {
   position: absolute;
   bottom: 0;
@@ -32,7 +76,7 @@ footer {
 }
 
 
-
+/* ----- Extra Stuff ----- */
 /* Submit button */
 .button-52 {
   font-size: 15px;
@@ -74,6 +118,7 @@ input{
   top: 0px;
   left: 0px;
 }
+
 
 /* --- media queries --- */
 @media (min-width: 768px) {

@@ -1,5 +1,11 @@
 import React from 'react'
 
-function Header() {}
+function Header() {
+  return (
+    <>
+      <div className="header">Connect connect</div>
+    </>
+  )
+}
 
 export default Header

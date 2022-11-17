@@ -9,7 +9,7 @@ function MovieList() {
       <h4>List of Movies returned</h4>
       <ul>
         {movieList.map((movie) => {
-          ;<li>{movie}</li>
+          ;<li key={movie.id}>{movie.title}</li>
         })}
       </ul>
     </>
