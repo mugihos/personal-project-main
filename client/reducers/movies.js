@@ -1,15 +1,14 @@
-//all about the board!
-// const initialBoardState = {}
-import { SET_MOVIES } from '../actions/addBoard'
+//all about the movie data!
+import { RECEIVE_POSTS } from '../actions'
 
-//getting list of movie data from ecternal api > display as an option to user
+//getting list of movie data from external api and assign to state
 function movies(state = [], action) {
   const { type, payload } = action
-
+  // console.log(payload)
   switch (type) {
-    case SET_MOVIES:
-      // console.log(payload)
-      return [...state, payload]
+    case RECEIVE_POSTS:
+      return payload
+
     default:
       return state
   }

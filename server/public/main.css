@@ -5,14 +5,16 @@
 
 html{
   font-family: 'Sono', sans-serif;
-  background-color: #DEBACE;
+  background-color: #F5F5F5;
+  /* background-color: #DEBACE; */
   
 }
 
 .app {
   margin: 2rem;
   padding: 1rem;
-  color: #863A6F;
+  color: #3C6385;
+  /* color: #863A6F; */
 }
 
 /* ----- header ----- */
@@ -57,7 +59,8 @@ input{
 
 .button-52:after {
   content: "";
-  background-color: #E97777;
+  background-color: #BECDC3;
+  /* background-color: #E97777; */
   width: 100%;
   z-index: -1;
   position: absolute;
