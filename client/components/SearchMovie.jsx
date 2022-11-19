@@ -1,13 +1,20 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovies } from '../actions/addBoard'
 
 // Movie search function
 
 function SearchMovie({ children }) {
   const dispatch = useDispatch()
+  // const movieList = useSelector((state) => state.movies)
   //local useState to handle input
   const [input, setInput] = useState('')
+  // const [result, setResult] = useState([])
+
+  // useEffect(() => {
+  //   setResult(movieList)
+  //   return result
+  // }, [])
 
   function handleChange(event) {
     setInput(event.target.value)

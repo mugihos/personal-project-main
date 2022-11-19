@@ -4,15 +4,21 @@ import { useSelector } from 'react-redux'
 
 function MovieList() {
   const movieList = useSelector((state) => state.movies)
-  console.log(movieList)
+  // console.log(movieList)
+  // console.log(typeof movieList)
+  // console.log(movieList.keys())
   return (
     <div>
-      {movieList?.map((movie) => {
-        ;<>
-          <li key={movie.id}>Title: {movie.title}</li>
-          <li>Year: {movie.description}</li>
-        </>
-      })}
+      <ul>
+        {movieList?.map((movie, i) => {
+          return (
+            <>
+              <li key={movie.id}>Title: {movie.title}</li>
+              <li key={i}>Year: {movie.description}</li>
+            </>
+          )
+        })}
+      </ul>
     </div>
   )
 }

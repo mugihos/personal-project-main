@@ -5,17 +5,17 @@ const db = require('../db/db.js')
 // --- routes to get/send data to board detail from db
 
 // GET /api/v1/boards --- all of boards
-router.get('/'),
-  (req, res) => {
-    db.getAllBoards()
-      .then((boards) => {
-        res.json(boards)
-      })
-      .catch((err) => {
-        console.log(err)
-        res.status(500).json({ message: 'Something went wrong' })
-      })
-  }
+
+router.get('/', (req, res) => {
+  db.getAllBoards()
+    .then((boards) => {
+      res.json(boards)
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
 
 // GET /api/vi/board/:boardId --- individual board view
 router.get('/:id', (req, res) => {

@@ -5,6 +5,7 @@ const initialRequestState = []
 const movies = (state = initialRequestState, action) => {
   const { type, payload } = action
   // console.log(typeof payload)
+  // console.log(payload)
   //this is showing the received data
   // console.log(typeof type)
   // console.log(typeof RECEIVE_MOVIES)
