@@ -12,7 +12,7 @@ const movies = (state = initialRequestState, action) => {
     case RECEIVE_MOVIES:
       // console.log('my case works')
       // console.log(payload)
-      return [...payload]
+      return [...state, payload]
     default:
       return state
   }

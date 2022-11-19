@@ -1,17 +1,17 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import SearchMovie from './SearchMovie'
+// import SearchMovie from './SearchMovie'
 
 function MovieList() {
   const movieList = useSelector((state) => state.movies)
+  console.log(movieList)
   return (
     <div>
       {movieList?.map((movie) => {
-        ;<SearchMovie
-          key={movie.id}
-          title={movie.title}
-          year={movie.description}
-        />
+        ;<>
+          <li key={movie.id}>Title: {movie.title}</li>
+          <li>Year: {movie.description}</li>
+        </>
       })}
     </div>
   )
