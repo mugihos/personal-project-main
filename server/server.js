@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const server = express()
 
-// const userProfile = require('./routes/userProfile')
+const userProfile = require('./routes/userProfile')
 const boardDetail = require('./routes/boardDetail')
 const externalApis = require('./externalApis')
 
@@ -11,7 +11,7 @@ server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
 // --- database stuff ---
-// server.use('/api/v1/profile', userProfile)
+server.use('/api/v1/profile', userProfile)
 server.use('/api/v1/board', boardDetail)
 
 // --- external api stuff ---

@@ -6,8 +6,43 @@ const db = require('../db/db.js')
 //not too sure how to add new profile? sign-up situation? Auth0?
 
 // GET /api/v1/profile/
+router.get('/', (req, res) => {
+  db.getProfileInfo()
+    .then((profileInfo) => {
+      res.json(profileInfo)
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
+
 // UPDATE /api/v1/profile/edit
+router.patch('/edit', (req, res) => {
+  const newProfileInfo = req.body
+  db.editProfileInfo(newProfileInfo)
+    .then(() => {
+      return db.getAllBoards()
+    })
+    .then((boards) => {
+      res.json(boards)
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
 
 // DELETE /api/v1/profile/delete
+router.delete('/', (req, res) => {
+  db.deleteProfileInfo()
+    .then(() => {
+      return console.log('delete successful')
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
 
-// module.exports = router
+module.exports = router

@@ -13,13 +13,14 @@ function editProfileInfo(newProfileInfo, db = connection) {
 
 //DELETE user profile data
 function deleteProfileInfo(id, db = connection) {
-  return db('users').where({ id }).del()
+  return db('users').del()
 }
 
 //add new board id to profile data ????????
-function getUserBoard(newBoardId, db = connection) {
-  return db('users').insert()
-}
+// this may be possible with the join table?
+// function getUserBoard(newBoardId, db = connection) {
+//   return db('users').insert()
+// }
 
 // --- board table ---
 //GET all board data
@@ -56,7 +57,7 @@ function deleteBoardById(id, db = connection) {
 
 module.exports = {
   getProfileInfo,
-  getUserBoard,
+  // getUserBoard,
   editProfileInfo,
   deleteProfileInfo,
   getAllBoards,
