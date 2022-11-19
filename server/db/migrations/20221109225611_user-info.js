@@ -5,6 +5,7 @@ exports.up = (knex) => {
     table.string('email')
     table.int('draft')
     table.int('complete')
+    table.date('dob')
   })
 }
 

@@ -14,7 +14,7 @@ function App() {
         <Header />
         <Nav />
         <SearchMovie />
-        <MovieList />
+        {/* <MovieList /> */}
         <Footer />
       </div>
     </>

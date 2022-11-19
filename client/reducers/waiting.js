@@ -1,4 +1,4 @@
-import { SHOW_ERROR, REQUEST_MOVIES, RECEIVE_MOVIES } from '../actions'
+import { SHOW_ERROR, REQUEST_MOVIES, RECEIVE_MOVIES } from '../actions/addBoard'
 
 function waiting(state = false, action) {
   const { type } = action

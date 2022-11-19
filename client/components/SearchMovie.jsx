@@ -4,14 +4,13 @@ import { fetchMovies } from '../actions/addBoard'
 
 // Movie search function
 
-function SearchBoard() {
+function SearchMovie({ children }) {
   const dispatch = useDispatch()
   //local useState to handle input
   const [input, setInput] = useState('')
 
   function handleChange(event) {
     setInput(event.target.value)
-    // console.log(input)
   }
 
   function handleSubmit(event) {
@@ -35,8 +34,9 @@ function SearchBoard() {
           search
         </button>
       </form>
+      {children}
     </>
   )
 }
 
-export default SearchBoard
+export default SearchMovie

@@ -6,8 +6,8 @@ exports.seed = async function (knex) {
       id: 1,
       name: 'Jane Doe',
       email: 'janedoe@gmaily.com',
-      draft: [],
-      complete: [],
+      draft: 3,
+      complete: 4,
     },
   ])
 }
