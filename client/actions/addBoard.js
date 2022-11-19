@@ -1,8 +1,8 @@
 import { getMovieData } from '../apis/apiClient'
 
 export const SHOW_ERROR = 'SHOW_ERROR'
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export const REQUEST_POSTS = 'REQUEST_POSTS'
+export const RECEIVE_MOVIES = 'RECEIVE_MOVIES'
+export const REQUEST_MOVIES = 'REQUEST_MOVIES'
 
 //error for everyone
 export function showError(errorMessage) {
@@ -12,17 +12,17 @@ export function showError(errorMessage) {
   }
 }
 
-//search movies
+// --- search movies and receive data ---
 export function requestMovieList() {
   return {
-    type: REQUEST_POSTS,
+    type: REQUEST_MOVIES,
   }
 }
 
 export function receiveMovieList(movies) {
   return {
-    type: RECEIVE_POSTS,
-    payload: movies,
+    type: RECEIVE_MOVIES,
+    payload: movies, //array of objects returned from api
   }
 }
 
@@ -31,7 +31,6 @@ export function fetchMovies(movie) {
     dispatch(requestMovieList())
     return getMovieData(movie)
       .then((movieData) => {
-        // console.log(movieData)
         dispatch(receiveMovieList(movieData))
       })
       .catch((err) => {
@@ -39,3 +38,17 @@ export function fetchMovies(movie) {
       })
   }
 }
+
+// export function fetchMovies(movie) {
+//   return (dispatch) => {
+//     dispatch(requestMovieList())
+//     return getMovieData(movie)
+//       .then((movieData) => {
+//         // console.log(movieData)
+//         dispatch(receiveMovieList(movieData))
+//       })
+//       .catch((err) => {
+//         dispatch(showError(err.message))
+//       })
+//   }
+// }
