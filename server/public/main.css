@@ -82,6 +82,17 @@ a {
   margin: 15px;
 }
 
+/* ----- Profile page ----- */
+.profile-list {
+  display: flex;
+}
+
+
+.profile-item {
+  
+}
+
+
 
 /* ----- Footer ----- */
 footer {

@@ -8,7 +8,7 @@ function Nav() {
       </a> */}
       <ul className="nav-links">
         <li className="nav-item">
-          <a href="/profie">Profile</a>
+          <a href="/profile">Profile</a>
         </li>
         <li className="nav-item">
           <a href="/boards">Boards</a>

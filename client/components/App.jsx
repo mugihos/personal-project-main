@@ -12,7 +12,7 @@ import AddBoard from './AddBoard'
 import EditBoard from './EditBoard'
 import Home from './Home'
 import Profile from './Profile'
-// import ViewBoards from './ViewBoards'
+import ViewBoards from './ViewBoards'
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
           <Route path="/addboardform" element={<AddBoard />} />
           <Route path="/editboard/:id" element={<EditBoard />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/boards" element={<ViewBoards />} />
           {/* <SearchMovie>
           <WaitIndicator />
         </SearchMovie>
