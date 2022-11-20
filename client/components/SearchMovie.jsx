@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchMovies } from '../actions/addBoard'
+import { fetchMovies } from '../actions/movieSearch'
 
 // Movie search function
 

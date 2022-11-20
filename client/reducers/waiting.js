@@ -1,10 +1,10 @@
-import { SHOW_ERROR, REQUEST_MOVIES, RECEIVE_MOVIES } from '../actions/addBoard'
+import { SHOW_ERROR, REQUEST_DATA, RECEIVE_MOVIES } from '../actions'
 
 function waiting(state = false, action) {
   const { type } = action
 
   switch (type) {
-    case REQUEST_MOVIES:
+    case REQUEST_DATA:
       return true
     case RECEIVE_MOVIES:
       return false

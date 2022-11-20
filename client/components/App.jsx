@@ -1,20 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 // --- import components ---
-import SearchMovie from './SearchMovie'
 import Footer from './Footer'
-import MovieList from './MovieList'
 import Header from './Header'
 import Nav from './Nav'
-import WaitIndicator from './Waiting'
 import AddBoard from './AddBoard'
 import EditBoard from './EditBoard'
 import Home from './Home'
 import Profile from './Profile'
 import ViewBoards from './ViewBoards'
+import { fetchBoards } from '../actions'
 
 function App() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchBoards())
+  }, [])
   return (
     <div className="body">
       <Header />
@@ -26,10 +30,6 @@ function App() {
           <Route path="/editboard/:id" element={<EditBoard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/boards" element={<ViewBoards />} />
-          {/* <SearchMovie>
-          <WaitIndicator />
-        </SearchMovie>
-        <MovieList /> */}
         </Routes>
       </Router>
       <Footer />

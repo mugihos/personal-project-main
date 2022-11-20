@@ -53,7 +53,7 @@ function deleteBoardById(id, db = connection) {
   return db('board').where({ id }).del()
 }
 
-//JOIN table to get which user made the board
+//JOIN table to get all boards associated with the user
 
 module.exports = {
   getProfileInfo,

@@ -13,7 +13,6 @@ function AddBoard() {
   const navigate = useNavigate()
 
   function handleChange(event) {
-    console.log(event.target.name)
     setInput({
       ...input,
       [event.target.name]: event.target.value,
