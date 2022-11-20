@@ -17,4 +17,8 @@ server.use('/api/v1/board', boardDetail)
 // --- external api stuff ---
 server.use('/api/v1/movies', externalApis)
 
+server.get('*', (req, res) => {
+  res.sendFile(path.resolve('server/public/index.html'))
+})
+
 module.exports = server

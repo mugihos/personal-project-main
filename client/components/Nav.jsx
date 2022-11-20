@@ -8,10 +8,10 @@ function Nav() {
       </a> */}
       <ul className="nav-links">
         <li className="nav-item">
-          <a href="#">Profile</a>
+          <a href="/profie">Profile</a>
         </li>
         <li className="nav-item">
-          <a href="#">Boards</a>
+          <a href="/boards">Boards</a>
         </li>
         <li className="nav-item">
           <a href="#">Sign in</a>

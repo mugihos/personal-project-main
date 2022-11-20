@@ -21,6 +21,13 @@ server.get('/:title', (req, res) => {
       res.send('err')
     })
 })
+
+// -- trying TMDB since testing limi ---
+// server.get('/:title', (req, res) => {
+//   const title = req.params.title
+//   request.get(``)
+// })
+
 // --- external colour API ---
 
 // --- external book API ---

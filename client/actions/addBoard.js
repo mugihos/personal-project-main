@@ -22,7 +22,8 @@ export function requestMovieList() {
 export function receiveMovieList(movies) {
   return {
     type: RECEIVE_MOVIES,
-    payload: movies, //array of objects returned from api
+    payload: movies,
+    // payload: movies.map((movie) => movie)
   }
 }
 
