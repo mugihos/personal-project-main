@@ -12,14 +12,10 @@ import Home from './Home'
 import Profile from './Profile'
 import SingleBoard from './SingleBoard'
 import AllBoards from './AllBoards'
+import SearchMovie from './SearchMovie'
 import { fetchBoards } from '../actions'
 
 function App() {
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchBoards())
-  }, [])
   return (
     <div className="body">
       <Header />
@@ -32,6 +28,7 @@ function App() {
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/board/:id" element={<SingleBoard />} />
           <Route path="/boards" element={<AllBoards />} />
+          {/* <Route path="/moviesearch" element={<SearchMovie />} /> */}
         </Routes>
       </Router>
       <Footer />

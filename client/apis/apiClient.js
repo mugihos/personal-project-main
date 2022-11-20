@@ -46,15 +46,15 @@ export function editBoard(id, newInfo) {
 
 //DELETE existing board
 export function deleteBoardById(id) {
-  return request.delete(`${rootUrl}/board${id}`).then((res) => {
+  return request.delete(`${rootUrl}/board/${id}/delete`).then((res) => {
     return res.body
   })
 }
 
 // --- userProfile api ---
 export function getUserInfo(id) {
-  return request.get(`${rootUrl}/profile${id}`).then((res) => {
-    console.log(res)
+  return request.get(`${rootUrl}/profile/${id}`).then((res) => {
+    console.log(res.body)
     return res.body
   })
 }

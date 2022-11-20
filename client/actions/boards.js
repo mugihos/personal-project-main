@@ -19,6 +19,13 @@ export function receiveBoardData(boards) {
   }
 }
 
+export function deleteBoardData(id) {
+  return {
+    type: DELETE_BOARD,
+    payload: id,
+  }
+}
+
 // -- get all board data --
 export function fetchBoards() {
   return (dispatch) => {
@@ -29,6 +36,15 @@ export function fetchBoards() {
       .catch((err) => {
         dispatch(showError(err.message))
       })
+  }
+}
+
+// -- delete board by id --
+export function removeBoard(id) {
+  return (dispatch) => {
+    return deleteBoardById(id).then(() => {
+      dispatch(deleteBoardData(id))
+    })
   }
 }
 

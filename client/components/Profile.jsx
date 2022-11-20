@@ -8,18 +8,10 @@ function Profile() {
   const params = useParams()
   const id = Number(params.id)
   const dispatch = useDispatch()
-  const [profile, setProfile] = useState([])
 
   useEffect(() => {
     dispatch(fetchUserData(id))
-      .then((result) => {
-        setProfile(result)
-      })
-      .catch((err) => {
-        dispatch(showError(err.message))
-      })
   }, [])
-  // console.log(profile)
 
   return (
     <div>

@@ -1,9 +1,15 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { fetchBoards } from '../actions'
 
 function Home() {
   const displayBoards = useSelector((state) => state.boards)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchBoards())
+  }, [])
+
   return (
     <div className="home-body">
       <h3>Connecting all the things you love in one board</h3>

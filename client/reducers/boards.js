@@ -1,5 +1,5 @@
 // get board related info
-import { RECEIVE_BOARD } from '../actions'
+import { RECEIVE_BOARD, DELETE_BOARD } from '../actions'
 const initialState = []
 
 const boards = (state = initialState, action) => {
@@ -8,6 +8,10 @@ const boards = (state = initialState, action) => {
   switch (type) {
     case RECEIVE_BOARD:
       return [...state, ...payload]
+    case DELETE_BOARD:
+      return state.filter((board) => {
+        return board.id !== payload
+      })
     default:
       return state
   }

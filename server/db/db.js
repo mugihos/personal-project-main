@@ -3,7 +3,7 @@ const connection = require('./connection')
 // --- user table ---
 //GET user profile data
 function getProfileInfo(id, db = connection) {
-  return db('users').select().where({ id })
+  return db('users').select().where({ id }).first()
 }
 
 //UPATE user profile data

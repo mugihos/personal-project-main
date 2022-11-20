@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchMovies } from '../actions/movieSearch'
+import MovieList from './MovieList'
 
 // Movie search function
 
@@ -31,10 +32,11 @@ function SearchMovie() {
           value={input}
           onChange={handleChange}
         />
-        <button className="button-52" type="submit">
+        <button className="button-23" type="submit">
           search
         </button>
       </form>
+      <MovieList />
     </>
   )
 }
