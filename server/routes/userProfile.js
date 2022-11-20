@@ -6,8 +6,9 @@ const db = require('../db/db.js')
 //not too sure how to add new profile? sign-up situation? Auth0?
 
 // GET /api/v1/profile/
-router.get('/', (req, res) => {
-  db.getProfileInfo()
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+  db.getProfileInfo(id)
     .then((profileInfo) => {
       res.json(profileInfo)
     })

@@ -10,7 +10,8 @@ import AddBoard from './AddBoard'
 import EditBoard from './EditBoard'
 import Home from './Home'
 import Profile from './Profile'
-// import ViewBoards from './ViewBoards'
+import SingleBoard from './SingleBoard'
+import AllBoards from './AllBoards'
 import { fetchBoards } from '../actions'
 
 function App() {
@@ -28,8 +29,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/addboardform" element={<AddBoard />} />
           <Route path="/editboard/:id" element={<EditBoard />} />
-          <Route path="/profile" element={<Profile />} />
-          {/* <Route path="/boards" element={<ViewBoards />} /> */}
+          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/board/:id" element={<SingleBoard />} />
+          <Route path="/boards" element={<AllBoards />} />
         </Routes>
       </Router>
       <Footer />

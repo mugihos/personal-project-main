@@ -8,8 +8,6 @@ const rootUrl = '/api/v1'
 //get list of movies that matches the searched keyword
 export function getMovieData(movieTitle) {
   return request.get(`${rootUrl}/movies/${movieTitle}`).then((response) => {
-    // console.log(typeof response.body.results)
-    // console.log(response.body.results)
     return response.body.results
   })
 }
@@ -54,3 +52,9 @@ export function deleteBoardById(id) {
 }
 
 // --- userProfile api ---
+export function getUserInfo(id) {
+  return request.get(`${rootUrl}/profile${id}`).then((res) => {
+    console.log(res)
+    return res.body
+  })
+}
