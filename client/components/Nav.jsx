@@ -14,8 +14,11 @@ function Nav() {
           <a href="/boards">Boards</a>
         </li>
         <li className="nav-item">
-          <a href="#">Sign in</a>
+          <a href="/addboardform">Add board</a>
         </li>
+        {/* <li className="nav-item">
+          <a href="#">Sign in</a>
+        </li> */}
       </ul>
     </nav>
   )

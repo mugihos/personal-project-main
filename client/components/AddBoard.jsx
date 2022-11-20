@@ -38,19 +38,64 @@ function AddBoard() {
   return (
     <div>
       <h3>Add new mood board</h3>
-      <form className="add-board-form">
-        <input
-          type="text"
-          name="board_title"
-          id="board_title"
-          onChange={handleChange}
-        />
-        <input type="text" name="mood" onChange={handleChange} />
-        <input type="text" name="story" onChange={handleChange} />
-        <input type="text" name="colour" onChange={handleChange} />
-        <input type="text" name="movie_data" onChange={handleChange} />
-        <button onClick={handleAdd}>Add board</button>
-      </form>
+      <img
+        className="addboard-img"
+        src="/images/film2.jpg"
+        alt="film negative zoom"
+      />
+      <ul>
+        <form className="add-board-form">
+          <li className="form-row">
+            <label htmlFor="board-title">Title</label>
+            <input
+              type="text"
+              name="board_title"
+              id="board_title"
+              onChange={handleChange}
+              className="add-board-input"
+            />
+          </li>
+          <li className="form-row">
+            <label htmlFor="mood">Mood</label>
+            <input
+              type="text"
+              name="mood"
+              onChange={handleChange}
+              className="add-board-input"
+            />
+          </li>
+          <li className="form-row">
+            <label htmlFor="story">Comment</label>
+            <input
+              type="text"
+              name="story"
+              onChange={handleChange}
+              className="add-board-input"
+            />
+          </li>
+          <li className="form-row">
+            <label htmlFor="colour">Colour</label>
+            <input
+              type="text"
+              name="colour"
+              onChange={handleChange}
+              className="add-board-input"
+            />
+          </li>
+          <li className="form-row">
+            <label htmlFor="movie">Movie selected</label>
+            <input
+              type="text"
+              name="movie_data"
+              onChange={handleChange}
+              className="add-board-input"
+            />
+          </li>
+        </form>
+      </ul>
+      <button className="button-23" onClick={handleAdd}>
+        Add board
+      </button>
     </div>
   )
 }
