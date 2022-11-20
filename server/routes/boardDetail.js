@@ -43,6 +43,22 @@ router.get('/:status', (req, res) => {
     })
 })
 
+//POST /api/v1/board/add
+router.post('/add', (req, res) => {
+  const newBoardData = req.body
+  db.addNewBoard(newBoardData)
+    .then(() => {
+      return db.getAllBoards()
+    })
+    .then((backgrounds) => {
+      res.json(backgrounds)
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
+
 // UPDATE /api/v1/board/:boardId/edit
 router.patch('/:id/edit', (req, res) => {
   const id = req.params.id

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import SearchMovie from './SearchMovie'
+import { submitBoard } from '../actions'
 
 function AddBoard() {
   const dispatch = useDispatch()
@@ -25,7 +27,7 @@ function AddBoard() {
 
   function handleAdd(event) {
     event.preventDefault()
-    dispatch(submitBoard(newBoard))
+    dispatch(submitBoard(input))
     setInput({
       board_title: '',
       mood: '',
@@ -46,7 +48,7 @@ function AddBoard() {
       <ul>
         <form className="add-board-form">
           <li className="form-row">
-            <label htmlFor="board-title">Title</label>
+            <label htmlFor="board-title">Board title</label>
             <input
               type="text"
               name="board_title"
@@ -86,13 +88,14 @@ function AddBoard() {
             <label htmlFor="movie">Movie selected</label>
             <input
               type="text"
-              name="movie_data"
+              name="movie_info"
               onChange={handleChange}
               className="add-board-input"
             />
           </li>
         </form>
       </ul>
+      <SearchMovie />
       <button className="button-23" onClick={handleAdd}>
         Add board
       </button>

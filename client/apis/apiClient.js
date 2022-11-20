@@ -8,6 +8,7 @@ const rootUrl = '/api/v1'
 //get list of movies that matches the searched keyword
 export function getMovieData(movieTitle) {
   return request.get(`${rootUrl}/movies/${movieTitle}`).then((response) => {
+    console.log(response.body.results)
     return response.body.results
   })
 }
@@ -22,7 +23,7 @@ export function getAllBoards() {
 
 //GET board by ID
 export function getBoardById(id) {
-  return request.get(`${rootUrl}/board${id}`).then((res) => {
+  return request.get(`${rootUrl}/board/${id}`).then((res) => {
     return res.body
   })
 }
@@ -32,6 +33,16 @@ export function getBoardByStatus(status) {
   return request.get(`${rootUrl}/board${status}`).then((res) => {
     return res.body
   })
+}
+
+// ADD(POST) new board
+export function addBoard(newBoard) {
+  return request
+    .post(`${rootUrl}/board/add`)
+    .send(newBoard)
+    .then((res) => {
+      return res.body
+    })
 }
 
 //UPDATE editing the baord

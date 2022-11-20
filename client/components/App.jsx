@@ -12,7 +12,6 @@ import Home from './Home'
 import Profile from './Profile'
 import SingleBoard from './SingleBoard'
 import AllBoards from './AllBoards'
-import SearchMovie from './SearchMovie'
 import { fetchBoards } from '../actions'
 
 function App() {
