@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { removeBoard } from '../actions'
 
 function SingleBoard() {
@@ -21,8 +21,6 @@ function SingleBoard() {
     navigate('/')
   }
 
-  function handleUpdate() {}
-
   return (
     <div>
       {singleBoard && (
@@ -34,9 +32,9 @@ function SingleBoard() {
             alt={singleBoard.movie_title}
           />
           <h4>{singleBoard.story}</h4>
-          <button className="button-23" onClick={handleUpdate}>
-            Edit board
-          </button>
+          <Link to={`/board/${id}/edit`}>
+            <button className="button-23">Edit board</button>
+          </Link>
           <button className="button-23" onClick={handleDelete}>
             Delete board
           </button>

@@ -1,7 +1,5 @@
 import {
   getAllBoards,
-  getBoardById,
-  getBoardByStatus,
   addBoard,
   editBoard,
   deleteBoardById,
@@ -30,12 +28,20 @@ export function addBoardData(newBoardInfo) {
   }
 }
 
-// export function receiveBoardDataById(id) {
-//   return {
-//     type: RECEIVE_BOARD_ID,
-//     payload: id,
-//   }
-// }
+// -- update board detail --
+export function updateBoard(updateData) {
+  return {
+    type: UPDATE_BOARD,
+    payload: updateData,
+  }
+}
+
+export function receiveBoardDataById(id) {
+  return {
+    type: RECEIVE_BOARD_ID,
+    payload: id,
+  }
+}
 
 export function deleteBoardData(id) {
   return {
@@ -44,7 +50,7 @@ export function deleteBoardData(id) {
   }
 }
 
-// -- get all board data --
+// -- GET all board data --
 export function fetchBoards() {
   return (dispatch) => {
     return getAllBoards()
@@ -57,7 +63,7 @@ export function fetchBoards() {
   }
 }
 
-// -- add new board data to db --
+// -- POST new board data to db --
 export function submitBoard(newBoardData) {
   return (dispatch) => {
     return addBoard(newBoardData)
@@ -70,17 +76,20 @@ export function submitBoard(newBoardData) {
   }
 }
 
-// -- get board by id ---
-// export function fetchBoardById(id) {
-//   return (dispatch) => {
-//     return getBoardById(id)
-//     .then((board) => {
-//       dispatch()
-//     })
-//   }
-// }
+// UPDATE board detail
+export function editBoardData(id, editData) {
+  return (dispatch) => {
+    return editBoard(id, editData)
+      .then((board) => {
+        dispatch(updateBoard(board))
+      })
+      .catch((err) => {
+        dispatch(showError(err.message))
+      })
+  }
+}
 
-// -- delete board by id --
+// -- DELETE board by id --
 export function removeBoard(id) {
   return (dispatch) => {
     return deleteBoardById(id)
@@ -92,5 +101,3 @@ export function removeBoard(id) {
       })
   }
 }
-
-// -- update board by id --

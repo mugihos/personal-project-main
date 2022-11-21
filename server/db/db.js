@@ -28,15 +28,15 @@ function getAllBoards(db = connection) {
   return db('board').select()
 }
 
-//GET board by id
-function getBoardById(id, db = connection) {
-  return db('board').where({ id }).select()
-}
+// //GET board by id
+// function getBoardById(id, db = connection) {
+//   return db('board').where({ id }).select()
+// }
 
-//GET board by status
-function getBoardByStatus(status, db = connection) {
-  return db('board').where({ status }).select()
-}
+// //GET board by status
+// function getBoardByStatus(status, db = connection) {
+//   return db('board').where({ status }).select()
+// }
 
 //POST new board
 function addNewBoard(newBoardInfo, db = connection) {
@@ -61,8 +61,8 @@ module.exports = {
   editProfileInfo,
   deleteProfileInfo,
   getAllBoards,
-  getBoardById,
-  getBoardByStatus,
+  // getBoardById,
+  // getBoardByStatus,
   addNewBoard,
   editBoard,
   deleteBoardById,
