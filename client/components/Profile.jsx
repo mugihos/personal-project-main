@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-
-import { useDispatch } from 'react-redux'
-import { fetchUserData, showError } from '../actions'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchUserData } from '../actions'
 import { useParams } from 'react-router-dom'
 
 function Profile() {
+  const profile = useSelector((state) => state.user)
   const params = useParams()
   const id = Number(params.id)
   const dispatch = useDispatch()
@@ -17,11 +17,11 @@ function Profile() {
     <div>
       <h3>This is the profile page</h3>
       <ul className="profile-list">
-        <li className="profile-item">NAME:</li>
-        <li className="profile-item">EMAIL</li>
-        <li className="profile-item">DOB</li>
-        <li className="profile-item">DRAFT</li>
-        <li className="profile-item">PUBLISHED</li>
+        <li className="profile-item">NAME: {profile.name}</li>
+        <li className="profile-item">EMAIL {profile.email}</li>
+        <li className="profile-item">DOB </li>
+        <li className="profile-item">DRAFT {profile.draft}</li>
+        <li className="profile-item">PUBLISHED {profile.complete}</li>
       </ul>
     </div>
   )

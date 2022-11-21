@@ -6,6 +6,7 @@ import { fetchBoards } from '../actions'
 function Home() {
   const displayBoards = useSelector((state) => state.boards)
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(fetchBoards())
   }, [])
