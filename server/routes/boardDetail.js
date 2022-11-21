@@ -17,31 +17,18 @@ router.get('/', (req, res) => {
     })
 })
 
-// // GET /api/vi/board/:boardId --- individual board view
-// router.get('/:id', (req, res) => {
-//   const id = req.params.id
-//   db.getBoardById(id)
-//     .then((board) => {
-//       res.json(board)
-//     })
-//     .catch((err) => {
-//       console.log(err)
-//       res.status(500).json({ message: 'Something went wrong' })
-//     })
-// })
-
-// // GET /api/v1/board/status
-// router.get('/:status', (req, res) => {
-//   const status = req.params.status
-//   db.getBoardByStatus(status)
-//     .then((boards) => {
-//       res.json(boards)
-//     })
-//     .catch((err) => {
-//       console.log(err)
-//       res.status(500).json({ message: 'Something went wrong' })
-//     })
-// })
+// GET /api/vi/board/:boardId --- individual board view
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+  db.getBoardById(id)
+    .then((board) => {
+      res.json(board)
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
 
 //POST /api/v1/board/add
 router.post('/add', (req, res) => {
@@ -63,6 +50,7 @@ router.post('/add', (req, res) => {
 router.patch('/:id/edit', (req, res) => {
   const id = req.params.id
   const newBoardInfo = req.body
+  console.log(id, newBoardInfo)
   db.editBoard(id, newBoardInfo)
     .then(() => {
       return db.getBoardById(id)

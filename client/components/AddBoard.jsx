@@ -27,6 +27,7 @@ function AddBoard() {
 
   function handleAdd(event) {
     event.preventDefault()
+    console.log(input)
     dispatch(submitBoard(input))
     setInput({
       board_title: '',

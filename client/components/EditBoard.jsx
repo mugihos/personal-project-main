@@ -17,10 +17,11 @@ function EditBoard() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [newInfo, setNewInfo] = useState({
-    board_title: '',
-    mood: '',
-    colour: '',
-    story: '',
+    id: singleBoard.id,
+    board_title: singleBoard.board_title,
+    mood: singleBoard.mood,
+    colour: singleBoard.colour,
+    story: singleBoard.story,
   })
 
   function handleChange(event) {
@@ -33,12 +34,6 @@ function EditBoard() {
   function handleUpdate(event) {
     event.preventDefault()
     dispatch(editBoardData(id, newInfo))
-    setNewInfo({
-      board_title: '',
-      mood: '',
-      colour: '',
-      story: '',
-    })
     navigate(`/board/${id}`)
   }
 

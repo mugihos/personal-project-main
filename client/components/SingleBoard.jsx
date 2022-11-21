@@ -11,6 +11,7 @@ function SingleBoard() {
   const allBoards = useSelector((state) => state.boards)
 
   const singleBoard = allBoards.find((board) => id === board.id)
+
   if (!singleBoard) {
     return <div></div>
   }
