@@ -6,13 +6,14 @@ dotenv.config()
 
 // --- api key stuff ---
 require('dotenv').config()
-const apiKey = process.env.IMDB_KEY
+const apiKey = process.env.OMDB_KEY
 
 // --- external movie API ---
+
 server.get('/:title', (req, res) => {
   const title = req.params.title
   request
-    .get(`https://imdb-api.com/en/API/SearchMovie/${apiKey}/${title}`)
+    .get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${title}`)
     .then((response) => {
       res.json(response.body)
     })
@@ -22,15 +23,10 @@ server.get('/:title', (req, res) => {
     })
 })
 
-// -- trying TMDB since testing limi ---
-// server.get('/:title', (req, res) => {
-//   const title = req.params.title
-//   request.get(``)
-// })
-
 // --- external colour API ---
 
 // --- external book API ---
 
 // --- external music API ---
+
 module.exports = server

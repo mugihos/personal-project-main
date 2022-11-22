@@ -7,6 +7,7 @@ const movies = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
     case RECEIVE_MOVIES:
+      console.log(payload)
       return [...payload]
     default:
       return state

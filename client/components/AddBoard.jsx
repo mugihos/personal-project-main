@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import SearchMovie from './SearchMovie'
 import { submitBoard } from '../actions'
+import Colour from './Colour'
 
 function AddBoard() {
   const dispatch = useDispatch()
@@ -13,16 +14,11 @@ function AddBoard() {
     story: '',
   })
   const navigate = useNavigate()
-
   function handleChange(event) {
     setInput({
       ...input,
       [event.target.name]: event.target.value,
     })
-    // const { name, value } = event.target
-    // setInput((newBoardInfo) => {
-    //   return {}
-    // })
   }
 
   function handleAdd(event) {
@@ -97,6 +93,7 @@ function AddBoard() {
         </form>
       </ul>
       <SearchMovie />
+      <Colour />
       <button className="button-23" onClick={handleAdd}>
         Add board
       </button>

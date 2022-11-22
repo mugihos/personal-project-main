@@ -9,11 +9,11 @@ function MovieList() {
   return (
     <div>
       <ul>
-        {movieList?.map((movie, i) => {
+        {movieList?.map((movie) => {
           return (
-            <div key={i}>
+            <div key={movie.imdbID}>
               <li>
-                Title: {movie.title}, {movie.description}
+                Title: {movie.Title}, {movie.Year}
               </li>
             </div>
           )

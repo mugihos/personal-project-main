@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 import { editBoardData } from '../actions'
@@ -7,22 +7,31 @@ import SearchMovie from './SearchMovie'
 function EditBoard() {
   const params = useParams()
   const id = Number(params.id)
-  const allBoards = useSelector((state) => state.boards)
-  const singleBoard = allBoards.find((board) => id === board.id)
-  if (!singleBoard) {
-    return <div></div>
-  }
-
-  // -- edit process --
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const allBoards = useSelector((state) => state.boards)
+  console.log(allBoards)
+
+  const singleBoard = allBoards?.find((board) => id === board.id)
+
+  // -- edit process --
   const [newInfo, setNewInfo] = useState({
-    id: singleBoard.id,
-    board_title: singleBoard.board_title,
-    mood: singleBoard.mood,
-    colour: singleBoard.colour,
-    story: singleBoard.story,
+    id: '',
+    board_title: '',
+    mood: '',
+    colour: '',
+    story: '',
   })
+
+  useEffect(() => {
+    setNewInfo({
+      id: singleBoard?.id || '',
+      board_title: singleBoard?.board_title || '',
+      mood: singleBoard?.mood || '',
+      colour: singleBoard?.colour || '',
+      story: singleBoard?.story || '',
+    })
+  }, [allBoards])
 
   function handleChange(event) {
     setNewInfo({
@@ -35,6 +44,10 @@ function EditBoard() {
     event.preventDefault()
     dispatch(editBoardData(id, newInfo))
     navigate(`/board/${id}`)
+  }
+
+  if (!singleBoard) {
+    return <div></div>
   }
 
   return (
@@ -57,6 +70,7 @@ function EditBoard() {
                 id="board_title"
                 onChange={handleChange}
                 className="add-board-input"
+                value={newInfo.board_title}
               />
             </li>
             <li className="form-row">
@@ -66,6 +80,7 @@ function EditBoard() {
                 name="mood"
                 onChange={handleChange}
                 className="add-board-input"
+                value={newInfo.mood}
               />
             </li>
             <li className="form-row">
@@ -75,6 +90,7 @@ function EditBoard() {
                 name="story"
                 onChange={handleChange}
                 className="add-board-input"
+                value={newInfo.story}
               />
             </li>
             <li className="form-row">
@@ -84,6 +100,7 @@ function EditBoard() {
                 name="colour"
                 onChange={handleChange}
                 className="add-board-input"
+                value={newInfo.colour}
               />
             </li>
             <li className="form-row">
@@ -93,6 +110,7 @@ function EditBoard() {
                 name="movie_info"
                 onChange={handleChange}
                 className="add-board-input"
+                value={newInfo.movie_info}
               />
             </li>
           </form>

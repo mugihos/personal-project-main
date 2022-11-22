@@ -50,7 +50,6 @@ router.post('/add', (req, res) => {
 router.patch('/:id/edit', (req, res) => {
   const id = req.params.id
   const newBoardInfo = req.body
-  console.log(id, newBoardInfo)
   db.editBoard(id, newBoardInfo)
     .then(() => {
       return db.getBoardById(id)
