@@ -1,4 +1,5 @@
 import React from 'react'
+import { IfAuthenticated, ItNotAuthenticated } from './Authenticated'
 
 function Nav() {
   return (

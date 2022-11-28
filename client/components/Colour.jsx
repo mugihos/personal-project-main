@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import iro from '@jaames/iro'
 
 function ColorPicker({ chooseColour }) {
-  const [selectColour, setSelectColour] = useState('')
+  const [selected, setSelected] = useState('')
+  // chooseColour is a function
+  // function addColour(newColour) {
+  //   setColour({ colour: newColour.hexString })
 
   const colorPicker = new iro.ColorPicker('#boxPicker', {
     width: 250,
@@ -23,18 +26,17 @@ function ColorPicker({ chooseColour }) {
     ],
   })
 
-  function handleColorChange(color) {
-    console.log(color.hexString)
-    setSelectColour(event.target.color)
-  }
+  // function handleColorChange(event) {
 
-  function handleColourSelected(color) {
-    setSelectColour(color)
-    chooseColour(selectColour)
-  }
+  // }
+
+  // function handleColourSelected(color) {
+  //   setSelected(color)
+  //   chooseColour(selected)
+  // }
   return (
     <>
-      <div id="boxPicker" onChange={handleColorChange} values={selectColour}>
+      <div id="boxPicker" values={selected}>
         {colorPicker}
       </div>
     </>

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import SearchMovie from './SearchMovie'
 import { submitBoard } from '../actions'
 import ColorPicker from './Colour'
+import iro from '@jaames/iro'
 
 function AddBoard() {
   const dispatch = useDispatch()
@@ -19,7 +20,7 @@ function AddBoard() {
   const [movie, setMovie] = useState({})
 
   // color state passed to Colour component
-  const [colour, setColour] = useState('')
+  const [colour, setColour] = useState({})
 
   // add movie search result to movie state
   function addMovieToBoard(newMovie) {
@@ -28,7 +29,7 @@ function AddBoard() {
 
   // add selected colour to colour state
   function addColour(newColour) {
-    setColour(newColour)
+    setColour({ colour: newColour.hexString })
   }
   // handle input values
   function handleChange(event) {
@@ -36,7 +37,7 @@ function AddBoard() {
       ...input,
       [event.target.name]: event.target.value,
       ...movie,
-      // colour: { colour },
+      colour: colour,
     })
   }
 
@@ -88,15 +89,8 @@ function AddBoard() {
           </li>
           <li className="form-row">
             <label htmlFor="colour">Colour</label>
-            {/* <ColorPicker chooseColour={addColour} /> */}
-            {/* <input
-              type="text"
-              name="colour"
-              onChange={handleChange}
-              className="add-board-input"
-            /> */}
+            <ColorPicker chooseColour={addColour} color={colour.colour} />
           </li>
-          <ColorPicker chooseColour={addColour} />
         </form>
       </ul>
       <button className="button-23" onClick={handleAdd}>
