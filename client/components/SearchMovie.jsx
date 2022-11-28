@@ -1,42 +1,55 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovies } from '../actions/movieSearch'
-import MovieList from './MovieList'
 
 // Movie search function
-
-function SearchMovie() {
+function SearchMovie({ selectedMovie }) {
   const dispatch = useDispatch()
-  //local useState to handle input
-  const [input, setInput] = useState('')
+  const searchMovieResult = useSelector((state) => state.movies)
+  const [searchInput, setSearchInput] = useState('')
 
-  function handleChange(event) {
-    setInput(event.target.value)
+  // take search input
+  function handleSearchInput(event) {
+    setSearchInput(event.target.value)
   }
 
-  function handleSubmit(event) {
+  // search for movies
+  function submitSearchKeyword(event) {
     event.preventDefault()
-    dispatch(fetchMovies(input))
-    setInput('')
+    dispatch(fetchMovies(searchInput))
   }
 
-  //submit this again as a whole form
+  // set the selected movie from list to 'selected'
+  function handleSelected(movie) {
+    const newMovie = {
+      movie_id: movie.imdbID,
+      movie_title: movie.Title,
+      movie_year: movie.Year,
+      movie_image: movie.Poster,
+    }
+    console.log(newMovie)
+    selectedMovie(newMovie)
+  }
+
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="movieSearch">Choose a movie</label>
-        <input
-          type="text"
-          id="movieSearch"
-          name="movie"
-          value={input}
-          onChange={handleChange}
-        />
-        <button className="button-23" type="submit">
-          search
-        </button>
-      </form>
-      <MovieList />
+      <h4>Search for movies</h4>
+      <input
+        type="text"
+        onChange={handleSearchInput}
+        value={searchInput}
+        placeholder="search movies"
+      />
+      <button onClick={submitSearchKeyword}>Search</button>
+      {searchMovieResult?.map((movie) => {
+        return (
+          <div key={movie.imdbID}>
+            <li onClick={() => handleSelected(movie)} value={movie}>
+              {movie.Title}, {movie.Year}
+            </li>
+          </div>
+        )
+      })}
     </>
   )
 }

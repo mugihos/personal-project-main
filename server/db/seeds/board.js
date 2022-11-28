@@ -6,7 +6,8 @@ exports.seed = async function (knex) {
       id: 1,
       board_title: 'Rainy Sunday',
       movie_id: 'tt5990474',
-      movie_info: 'Columbus',
+      movie_title: 'Columbus',
+      movie_year: 2018,
       movie_image:
         'https://m.media-amazon.com/images/M/MV5BNWJiNzBlNjAtYjgwOC00YjZmLWI0YzItNTI1MzY4NmE4ZGI1XkEyXkFqcGdeQXVyODc0OTEyNDU@._V1_.jpg',
       // maybe need to save the api call request?
@@ -28,7 +29,8 @@ exports.seed = async function (knex) {
       id: 2,
       board_title: 'Summer vacation',
       movie_id: 'tt5990474',
-      movie_info: 'Aftersun',
+      movie_title: 'Aftersun',
+      movie_year: 2022,
       movie_image:
         'https://superstarsbio.com/wp-content/uploads/2022/09/Aftersun.jpg',
       // maybe need to save the api call request?
@@ -50,7 +52,8 @@ exports.seed = async function (knex) {
       id: 3,
       board_title: 'City runner',
       movie_id: 'tt5990474',
-      movie_info: 'Drive',
+      movie_title: 'Drive',
+      movie_year: 2011,
       movie_image: 'https://tinyurl.com/65j6s6w4',
       // maybe need to save the api call request?
       // movie_info: {
@@ -71,7 +74,8 @@ exports.seed = async function (knex) {
       id: 4,
       board_title: 'Near future',
       movie_id: 'tt5990474',
-      movie_info: 'After Yang',
+      movie_title: 'After Yang',
+      movie_year: 2020,
       movie_image: 'https://tinyurl.com/4r5hwnc7',
       // maybe need to save the api call request?
       // movie_info: {
@@ -92,7 +96,8 @@ exports.seed = async function (knex) {
       id: 5,
       board_title: 'Literally everything',
       movie_id: 'tt5990474',
-      movie_info: 'Everything Everywhere All at Once',
+      movie_title: 'Everything Everywhere All at Once',
+      movie_year: 2022,
       movie_image: 'https://tinyurl.com/57mbzcz4',
       // maybe need to save the api call request?
       // movie_info: {

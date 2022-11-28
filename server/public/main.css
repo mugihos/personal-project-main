@@ -70,6 +70,15 @@ a {
   color: #3C6385;
 }
 
+input[type=text], textarea {
+  /* width: 100%; */
+  /* padding: 2rem; */
+  border: 1px solid #3C6385;
+  border-radius: 4px;
+  resize: vertical;
+  font: inherit;
+}
+
 /* ----- Container ----- */
 .container {
   display: flex;
@@ -102,20 +111,26 @@ a {
 }
 
 .add-board-form {
-  text-align: center;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 70%;
 }
 
+label {
+  flex: none;
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-weight: bold;
+}
 .add-board-input {
-  display: flex;
-  justify-content: center;
-  width: 300px;
-  padding: 0.5rem 1rem;
+  /* justify-content: center;
+  width: 100%; */
+  /* padding: 0.5rem 1rem;
   margin: 1rem 2rem;
   border: 2px solid F2CECE;
-  border-radius: 5px;
+  border-radius: 5px; */
 }
 
 .addboard-img {
@@ -144,7 +159,6 @@ a {
   flex-direction: row;
   font-size: 1.5rem;
 }
-
 
 
 
@@ -205,10 +219,10 @@ footer {
     padding: 13px 50px 13px;
   }
 } */
-
+/* 
 .ColorPicker {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */

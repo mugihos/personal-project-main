@@ -12,18 +12,32 @@ function AddBoard() {
     mood: '',
     colour: '',
     story: '',
+    status: '',
   })
+
+  const [movie, setMovie] = useState({})
+
   const navigate = useNavigate()
+
+  // add movie search result to movie
+  function addMovieToBoard(newMovie) {
+    // console.log(newMovie)
+    setMovie(newMovie)
+  }
+
+  // handle input values
   function handleChange(event) {
     setInput({
       ...input,
       [event.target.name]: event.target.value,
+      ...movie,
     })
   }
 
+  console.log(movie)
+
   function handleAdd(event) {
     event.preventDefault()
-    console.log(input)
     dispatch(submitBoard(input))
     setInput({
       board_title: '',
@@ -34,14 +48,11 @@ function AddBoard() {
     navigate('/')
   }
 
+  console.log(input)
+
   return (
     <div>
       <h3>Add new mood board</h3>
-      <img
-        className="addboard-img"
-        src="/images/film2.jpg"
-        alt="film negative zoom"
-      />
       <ul>
         <form className="add-board-form">
           <li className="form-row">
@@ -54,6 +65,7 @@ function AddBoard() {
               className="add-board-input"
             />
           </li>
+          <SearchMovie selectedMovie={addMovieToBoard} />
           <li className="form-row">
             <label htmlFor="mood">Mood</label>
             <input
@@ -65,7 +77,7 @@ function AddBoard() {
           </li>
           <li className="form-row">
             <label htmlFor="story">Comment</label>
-            <input
+            <textarea
               type="text"
               name="story"
               onChange={handleChange}
@@ -81,18 +93,8 @@ function AddBoard() {
               className="add-board-input"
             />
           </li>
-          <li className="form-row">
-            <label htmlFor="movie">Movie selected</label>
-            <input
-              type="text"
-              name="movie_info"
-              onChange={handleChange}
-              className="add-board-input"
-            />
-          </li>
         </form>
       </ul>
-      <SearchMovie />
       <Colour />
       <button className="button-23" onClick={handleAdd}>
         Add board
