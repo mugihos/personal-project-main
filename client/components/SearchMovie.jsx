@@ -27,7 +27,6 @@ function SearchMovie({ selectedMovie }) {
       movie_year: movie.Year,
       movie_image: movie.Poster,
     }
-    console.log(newMovie)
     selectedMovie(newMovie)
   }
 

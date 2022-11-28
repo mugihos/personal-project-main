@@ -3,38 +3,42 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import SearchMovie from './SearchMovie'
 import { submitBoard } from '../actions'
-import Colour from './Colour'
+import ColorPicker from './Colour'
 
 function AddBoard() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  // basic form info input
   const [input, setInput] = useState({
     board_title: '',
     mood: '',
-    colour: '',
     story: '',
-    status: '',
+    status: '', //select between publish, draft, private
   })
-
+  // movie state passed to SearchMovie component
   const [movie, setMovie] = useState({})
 
-  const navigate = useNavigate()
+  // color state passed to Colour component
+  const [colour, setColour] = useState('')
 
-  // add movie search result to movie
+  // add movie search result to movie state
   function addMovieToBoard(newMovie) {
-    // console.log(newMovie)
     setMovie(newMovie)
   }
 
+  // add selected colour to colour state
+  function addColour(newColour) {
+    setColour(newColour)
+  }
   // handle input values
   function handleChange(event) {
     setInput({
       ...input,
       [event.target.name]: event.target.value,
       ...movie,
+      // colour: { colour },
     })
   }
-
-  console.log(movie)
 
   function handleAdd(event) {
     event.preventDefault()
@@ -47,8 +51,6 @@ function AddBoard() {
     })
     navigate('/')
   }
-
-  console.log(input)
 
   return (
     <div>
@@ -86,16 +88,17 @@ function AddBoard() {
           </li>
           <li className="form-row">
             <label htmlFor="colour">Colour</label>
-            <input
+            {/* <ColorPicker chooseColour={addColour} /> */}
+            {/* <input
               type="text"
               name="colour"
               onChange={handleChange}
               className="add-board-input"
-            />
+            /> */}
           </li>
+          <ColorPicker chooseColour={addColour} />
         </form>
       </ul>
-      <Colour />
       <button className="button-23" onClick={handleAdd}>
         Add board
       </button>
