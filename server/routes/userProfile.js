@@ -1,12 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../db/db.js')
+const checkJwt = require('../auth0')
 
 // --- routes to get/send data to profile db
 //not too sure how to add new profile? sign-up situation? Auth0?
 
 // GET /api/v1/profile/
-router.get('/:id', (req, res) => {
+router.get('/:id', checkJwt, (req, res) => {
   const id = req.params.id
   db.getProfileInfo(id)
     .then((profileInfo) => {
@@ -19,7 +20,7 @@ router.get('/:id', (req, res) => {
 })
 
 // UPDATE /api/v1/profile/edit
-router.patch('/edit', (req, res) => {
+router.patch('/edit', checkJwt, (req, res) => {
   const newProfileInfo = req.body
   db.editProfileInfo(newProfileInfo)
     .then(() => {
@@ -35,7 +36,7 @@ router.patch('/edit', (req, res) => {
 })
 
 // DELETE /api/v1/profile/delete
-router.delete('/', (req, res) => {
+router.delete('/', checkJwt, (req, res) => {
   db.deleteProfileInfo()
     .then(() => {
       return console.log('delete successful')

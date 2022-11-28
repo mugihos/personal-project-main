@@ -1,14 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import SearchMovie from './SearchMovie'
 import { submitBoard } from '../actions'
-import ColorPicker from './Colour'
-import iro from '@jaames/iro'
+import { useAuth0 } from '@auth0/auth0-react'
+// import ColorPicker from './Colour'
 
 function AddBoard() {
+  const { getAccessTokenSilently } = useAuth0()
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  const [token, setToken] = useState('')
+  useEffect(() => {
+    async function getToken() {
+      const currentToken = await etAccessTokenSilently()
+      setToken(currentToken)
+    }
+    getToken()
+  }, [])
   // basic form info input
   const [input, setInput] = useState({
     board_title: '',
@@ -20,7 +30,7 @@ function AddBoard() {
   const [movie, setMovie] = useState({})
 
   // color state passed to Colour component
-  const [colour, setColour] = useState({})
+  // const [colour, setColour] = useState({})
 
   // add movie search result to movie state
   function addMovieToBoard(newMovie) {
@@ -28,16 +38,16 @@ function AddBoard() {
   }
 
   // add selected colour to colour state
-  function addColour(newColour) {
-    setColour({ colour: newColour.hexString })
-  }
+  // function addColour(newColour) {
+  //   setColour({ colour: newColour.hexString })
+  // }
   // handle input values
   function handleChange(event) {
     setInput({
       ...input,
       [event.target.name]: event.target.value,
       ...movie,
-      colour: colour,
+      // colour: colour,
     })
   }
 
@@ -89,7 +99,7 @@ function AddBoard() {
           </li>
           <li className="form-row">
             <label htmlFor="colour">Colour</label>
-            <ColorPicker chooseColour={addColour} color={colour.colour} />
+            {/* <ColorPicker chooseColour={addColour} color={colour.colour} /> */}
           </li>
         </form>
       </ul>
