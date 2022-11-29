@@ -23,7 +23,7 @@ function Nav() {
           <Link to="/profile">Profile</Link>
         </li>
         <li className="nav-item">
-          <Link to="/boards">Boards</Link>
+          <Link to="/boards">Dashboard</Link>
         </li>
         <li className="nav-item">
           <Link to="/addboardform">Add board</Link>

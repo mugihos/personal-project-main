@@ -12,7 +12,7 @@ import EditBoard from './EditBoard'
 import Home from './Home'
 import Profile from './Profile'
 import SingleBoard from './SingleBoard'
-import AllBoards from './AllBoards'
+import Dashboard from './Dashboard'
 
 function App() {
   const dispatch = useDispatch()
@@ -31,7 +31,7 @@ function App() {
         <Route path="/board/:id/edit" element={<EditBoard />} />
         <Route path="/profile/:id" element={<Profile />} />
         <Route path="/board/:id" element={<SingleBoard />} />
-        <Route path="/boards" element={<AllBoards />} />
+        <Route path="/boards" element={<Dashboard />} />
       </Routes>
       <Footer />
     </div>
