@@ -64,9 +64,9 @@ export function fetchBoards() {
 }
 
 // -- POST new board data to db --
-export function submitBoard(newBoardData) {
+export function submitBoard(newBoardData, token) {
   return (dispatch) => {
-    return addBoard(newBoardData)
+    return addBoard(newBoardData, token)
       .then((board) => {
         dispatch(addBoardData(board))
       })

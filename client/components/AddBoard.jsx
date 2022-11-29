@@ -12,6 +12,7 @@ function AddBoard() {
   const navigate = useNavigate()
 
   const [token, setToken] = useState('')
+
   useEffect(() => {
     async function getToken() {
       const currentToken = await getAccessTokenSilently()
@@ -19,6 +20,7 @@ function AddBoard() {
     }
     getToken()
   }, [])
+
   // basic form info input
   const [input, setInput] = useState({
     board_title: '',
@@ -53,7 +55,7 @@ function AddBoard() {
 
   function handleAdd(event) {
     event.preventDefault()
-    dispatch(submitBoard(input))
+    dispatch(submitBoard(input, token))
     setInput({
       board_title: '',
       mood: '',
