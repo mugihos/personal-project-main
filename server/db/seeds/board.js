@@ -10,15 +10,7 @@ exports.seed = async function (knex) {
       movie_year: 2018,
       movie_image:
         'https://m.media-amazon.com/images/M/MV5BNWJiNzBlNjAtYjgwOC00YjZmLWI0YzItNTI1MzY4NmE4ZGI1XkEyXkFqcGdeQXVyODc0OTEyNDU@._V1_.jpg',
-      // maybe need to save the api call request?
-      // movie_info: {
-      //   title: 'Columbus',
-      //   year: 2018,
-      //   director: 'Kogonada',
-      //   image:
-      //     'https://m.media-amazon.com/images/M/MV5BNWJiNzBlNjAtYjgwOC00YjZmLWI0YzItNTI1MzY4NmE4ZGI1XkEyXkFqcGdeQXVyODc0OTEyNDU@._V1_.jpg',
-      // },
-      creator_id: 3,
+      auth0_id: 3,
       mood: 'melancholic',
       colour: 'green',
       story: 'Losing way and finding yourself again in the same place.',
@@ -33,15 +25,7 @@ exports.seed = async function (knex) {
       movie_year: 2022,
       movie_image:
         'https://superstarsbio.com/wp-content/uploads/2022/09/Aftersun.jpg',
-      // maybe need to save the api call request?
-      // movie_info: {
-      //   title: 'Columbus',
-      //   year: 2018,
-      //   director: 'Kogonada',
-      //   image:
-      //     'https://m.media-amazon.com/images/M/MV5BNWJiNzBlNjAtYjgwOC00YjZmLWI0YzItNTI1MzY4NmE4ZGI1XkEyXkFqcGdeQXVyODc0OTEyNDU@._V1_.jpg',
-      // },
-      creator_id: 1,
+      auth0_id: 1,
       mood: 'summer vacation',
       colour: 'blue',
       story: 'Re-visting memories of warmth and sadness.',
@@ -55,15 +39,7 @@ exports.seed = async function (knex) {
       movie_title: 'Drive',
       movie_year: 2011,
       movie_image: 'https://tinyurl.com/65j6s6w4',
-      // maybe need to save the api call request?
-      // movie_info: {
-      //   title: 'Columbus',
-      //   year: 2018,
-      //   director: 'Kogonada',
-      //   image:
-      //     'https://m.media-amazon.com/images/M/MV5BNWJiNzBlNjAtYjgwOC00YjZmLWI0YzItNTI1MzY4NmE4ZGI1XkEyXkFqcGdeQXVyODc0OTEyNDU@._V1_.jpg',
-      // },
-      creator_id: 1,
+      auth0_id: 1,
       mood: 'lonley city',
       colour: 'dark blue and neon pink',
       story: 'Visual story telling at its greatest.',
@@ -77,15 +53,7 @@ exports.seed = async function (knex) {
       movie_title: 'After Yang',
       movie_year: 2020,
       movie_image: 'https://tinyurl.com/4r5hwnc7',
-      // maybe need to save the api call request?
-      // movie_info: {
-      //   title: 'Columbus',
-      //   year: 2018,
-      //   director: 'Kogonada',
-      //   image:
-      //     'https://m.media-amazon.com/images/M/MV5BNWJiNzBlNjAtYjgwOC00YjZmLWI0YzItNTI1MzY4NmE4ZGI1XkEyXkFqcGdeQXVyODc0OTEyNDU@._V1_.jpg',
-      // },
-      creator_id: 1,
+      auth0_id: 1,
       mood: 'quietly sad',
       colour: 'green',
       story: 'Thinking about things we lost in the process of progress',
@@ -99,15 +67,7 @@ exports.seed = async function (knex) {
       movie_title: 'Everything Everywhere All at Once',
       movie_year: 2022,
       movie_image: 'https://tinyurl.com/57mbzcz4',
-      // maybe need to save the api call request?
-      // movie_info: {
-      //   title: 'Columbus',
-      //   year: 2018,
-      //   director: 'Kogonada',
-      //   image:
-      //     'https://m.media-amazon.com/images/M/MV5BNWJiNzBlNjAtYjgwOC00YjZmLWI0YzItNTI1MzY4NmE4ZGI1XkEyXkFqcGdeQXVyODc0OTEyNDU@._V1_.jpg',
-      // },
-      creator_id: 1,
+      auth0_id: 1,
       mood: 'energetic and chaos',
       colour: 'orange',
       story: 'When everyting feels like its too much.',
@@ -116,11 +76,3 @@ exports.seed = async function (knex) {
     },
   ])
 }
-
-// table.increments('id').primary()
-// table.string('title')
-// table.string('mood')
-// table.string('colour')
-// table.string('imageUrl')
-// table.string('story')
-// table.integer('dateCreated')

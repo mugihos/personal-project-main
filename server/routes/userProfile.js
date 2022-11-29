@@ -8,6 +8,11 @@ const checkJwt = require('../auth0')
 
 // GET /api/v1/profile/
 router.get('/:id', checkJwt, (req, res) => {
+  // const auth0_id = req.auth?.sub
+
+  // if(!auth0_id) {
+  //   res.send(null)
+  // } else {}
   const id = req.params.id
   db.getProfileInfo(id)
     .then((profileInfo) => {

@@ -14,7 +14,7 @@ function AddBoard() {
   const [token, setToken] = useState('')
   useEffect(() => {
     async function getToken() {
-      const currentToken = await etAccessTokenSilently()
+      const currentToken = await getAccessTokenSilently()
       setToken(currentToken)
     }
     getToken()

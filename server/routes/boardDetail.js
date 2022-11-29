@@ -7,7 +7,7 @@ const checkJwt = require('../auth0')
 
 // GET /api/v1/boards --- all of boards
 
-router.get('/', checkJwt, (req, res) => {
+router.get('/', (req, res) => {
   db.getAllBoards()
     .then((boards) => {
       res.json(boards)

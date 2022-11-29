@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import { Auth0Provider } from '@auth0/auth0-react'
@@ -15,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
       audience="https://thisenthat/api"
     >
       <Provider store={store}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </Provider>
     </Auth0Provider>,
     document.getElementById('app')

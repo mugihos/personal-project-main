@@ -6,7 +6,7 @@ exports.up = (knex) => {
     table.string('movie_title')
     table.int('movie_year')
     table.string('movie_image')
-    table.integer('creator_id')
+    table.integer('auth0_id') //creator_id?
     table.string('mood')
     table.string('colour')
     table.string('story')

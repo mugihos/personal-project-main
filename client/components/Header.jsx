@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
     <div className="header">
-      <a href="/">This and That</a>
+      <Link to="/">This and That</Link>
     </div>
   )
 }

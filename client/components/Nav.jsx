@@ -39,7 +39,7 @@ function Nav() {
 
       <ItNotAuthenticated>
         <Link to="/" onClick={handleSignIn}>
-          Regoster | Sign in
+          Register | Sign in
         </Link>
       </ItNotAuthenticated>
     </nav>

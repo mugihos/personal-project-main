@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { fetchBoards } from '../actions'
 
@@ -25,16 +25,14 @@ function App() {
     <div className="body">
       <Header />
       <Nav />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/addboardform" element={<AddBoard />} />
-          <Route path="/board/:id/edit" element={<EditBoard />} />
-          <Route path="/profile/:id" element={<Profile />} />
-          <Route path="/board/:id" element={<SingleBoard />} />
-          <Route path="/boards" element={<AllBoards />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/addboardform" element={<AddBoard />} />
+        <Route path="/board/:id/edit" element={<EditBoard />} />
+        <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/board/:id" element={<SingleBoard />} />
+        <Route path="/boards" element={<AllBoards />} />
+      </Routes>
       <Footer />
     </div>
   )
